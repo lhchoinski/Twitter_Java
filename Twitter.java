@@ -2,11 +2,15 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class Twitter {
+
+    static ArrayList <Usuario> usuarios = new ArrayList<Usuario>();
     
     public static void main(String[] args) {
         
         int opcao;
         Scanner leitor = new Scanner(System.in);
+
+        
 
         System.out.println("-- BEM VINDO AO TWITTER JAVA !!! ---");
         
@@ -31,11 +35,13 @@ public class Twitter {
            switch (opcao) {
             case 1:
 
+    
             System.out.println("Digite o nome :");
             String nome = leitor.nextLine();
+            leitor.nextLine();
 
             System.out.println("Digite o login :");
-            String login = leitor.next();
+            String login = leitor.nextLine();
             
             System.out.println("Digite o email :");
             String email = leitor.nextLine();
@@ -43,12 +49,10 @@ public class Twitter {
             System.out.println("Digite o senha :");
             String senha = leitor.nextLine();
 
-            ArrayList <Usuario> usuarios = new ArrayList<Usuario>();
-            
-            
+            Usuario u = new Usuario(nome, login, email, senha);
 
-
-
+            usuarios.add(u);
+        
                 break;
     
             case 2:
@@ -91,6 +95,10 @@ public class Twitter {
             case 0:
                  
                 break;
+
+            default:
+
+                System.out.println("\nOpcao invalida");
             }
 
                
