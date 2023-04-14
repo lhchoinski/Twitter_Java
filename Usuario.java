@@ -9,33 +9,6 @@ public class Usuario{
         this.senha = senha;
     }
     
-    
-
-    public void requisitosCadastro(){
-
-        if(nome.length()<2 || nome.length()>30){
-
-            System.out.println("Numero de caracteres invalido");
-
-        }
-        if(login.length()<2 || login.length()>20){
-
-            System.out.println("Numero de caracteres invalido");
-
-        }
-        if(email.length()<6 || email.length()>30){
-
-            System.out.println("Numero de caracteres invalido");
-
-        }
-        if(senha.length()<6 || senha.length()>15){
-
-            System.out.println("Numero de caracteres invalido");
-
-        }
-
-    }
-
 
     public String getNome() {
         return nome;
@@ -74,6 +47,15 @@ public class Usuario{
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+
+ //lista os usuarios cadastrados
+ 
+    @Override
+    public String toString() {
+        return   "\n LISTA DE USUARIOS\n\n"
+        +login ;
     }
 
     

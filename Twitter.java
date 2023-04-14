@@ -5,6 +5,7 @@ public class Twitter {
 
     static ArrayList <Usuario> usuarios = new ArrayList<Usuario>();
     
+    
     public static void main(String[] args) {
         
         int opcao;
@@ -33,33 +34,83 @@ public class Twitter {
             opcao = leitor.nextInt();
 
            switch (opcao) {
+
+            //CADASTRAR USUARIO
+
             case 1:
-
-    
-            System.out.println("Digite o nome :");
-            String nome = leitor.nextLine();
-            leitor.nextLine();
-
-            System.out.println("Digite o login :");
-            String login = leitor.nextLine();
             
-            System.out.println("Digite o email :");
-            String email = leitor.nextLine();
+            String nome;
+            String email;
+            String login;
+            String senha;
+            
+            
+            do{
 
-            System.out.println("Digite o senha :");
-            String senha = leitor.nextLine();
+                System.out.println("Digite o nome :");
+                nome = leitor.nextLine();
+                
+                
+            }while(nome.length()<2 || nome.length()>30);
 
+            do{
+
+                System.out.println("Digite o login :");
+                login = leitor.nextLine();
+
+            }while(nome.length()<2 || nome.length()>20);
+
+            do{
+
+                System.out.println("Digite o email :");
+                email = leitor.nextLine();
+
+            }while(email.length()<6 || email.length()>30);
+
+            do{
+
+                System.out.println("Digite o senha :");
+                senha = leitor.nextLine();
+                
+            }while(senha.length()<6 || senha.length()>15);
+            
             Usuario u = new Usuario(nome, login, email, senha);
 
             usuarios.add(u);
-        
+
+
                 break;
+
+            //LISTAR USUARIOS  
     
             case 2:
-                
+
+            for(int i=0; i<usuarios.size(); i++){
+ 
+            System.out.println(usuarios.get(i));
+
+            }
+
                 break;
+
+            //LOGAR USUARIO    
     
             case 3:
+
+            String login_dig;
+            String senha_dig;
+
+            System.out.println("Login:");
+            login_dig = leitor.nextLine();
+
+            System.out.println("Senha:");
+            senha_dig = leitor.nextLine();
+
+            do{
+
+                System.out.println("Senha/Login incorretos!");
+
+            }while(senha_dig.equals(senha) || login_dig.equals(login));
                 
                 break;
     
