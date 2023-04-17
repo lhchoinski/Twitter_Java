@@ -33,22 +33,25 @@ public class Twitter {
 
             opcao = leitor.nextInt();
 
+            
+            String nome;
+            String email;
+            String login;
+            String senha;
+
            switch (opcao) {
 
             //CADASTRAR USUARIO
 
             case 1:
             
-            String nome;
-            String email;
-            String login;
-            String senha;
+            
             
             
             do{
 
                 System.out.println("Digite o nome :");
-                nome = leitor.nextLine();
+                nome = leitor.next();
                 
                 
             }while(nome.length()<2 || nome.length()>30);
@@ -56,21 +59,21 @@ public class Twitter {
             do{
 
                 System.out.println("Digite o login :");
-                login = leitor.nextLine();
+                login = leitor.next();
 
-            }while(nome.length()<2 || nome.length()>20);
+            }while(login.length()<2 || login.length()>20);
 
             do{
 
                 System.out.println("Digite o email :");
-                email = leitor.nextLine();
+                email = leitor.next();
 
             }while(email.length()<6 || email.length()>30);
 
             do{
 
                 System.out.println("Digite o senha :");
-                senha = leitor.nextLine();
+                senha = leitor.next();
                 
             }while(senha.length()<6 || senha.length()>15);
             
@@ -94,6 +97,8 @@ public class Twitter {
                 break;
 
             //LOGAR USUARIO    
+
+            
     
             case 3:
 
@@ -101,16 +106,16 @@ public class Twitter {
             String senha_dig;
 
             System.out.println("Login:");
-            login_dig = leitor.nextLine();
+            login_dig = leitor.next();
 
             System.out.println("Senha:");
-            senha_dig = leitor.nextLine();
+            senha_dig = leitor.next();
 
             do{
 
                 System.out.println("Senha/Login incorretos!");
 
-            }while(senha_dig.equals(senha) || login_dig.equals(login));
+            }while(senha_dig.equals(usuarios.get(senha)) || login_dig.equals(usuarios.get(senha)));
                 
                 break;
     
