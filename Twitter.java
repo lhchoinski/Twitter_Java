@@ -4,14 +4,11 @@ import java.util.ArrayList;
 public class Twitter {
 
     static ArrayList <Usuario> usuarios = new ArrayList<Usuario>();
-    
-    
+
     public static void main(String[] args) {
         
         int opcao;
         Scanner leitor = new Scanner(System.in);
-
-        
 
         System.out.println("-- BEM VINDO AO TWITTER JAVA !!! ---");
         
@@ -32,7 +29,6 @@ public class Twitter {
            System.out.println("\n0- finalizar programa");
 
             opcao = leitor.nextInt();
-
             
             String nome;
             String email;
@@ -44,15 +40,14 @@ public class Twitter {
             //CADASTRAR USUARIO
 
             case 1:
-            
-            
-            
+
+            System.out.println("---------------------------");
+            System.out.println("\nCADASTRO DE USUARIO\n");
             
             do{
 
                 System.out.println("Digite o nome :");
                 nome = leitor.next();
-                
                 
             }while(nome.length()<2 || nome.length()>30);
 
@@ -77,28 +72,36 @@ public class Twitter {
                 
             }while(senha.length()<6 || senha.length()>15);
             
-            Usuario u = new Usuario(nome, login, email, senha);
+            Usuario u = new Usuario(nome, login, email, senha, false);
 
             usuarios.add(u);
 
-
+            System.out.println("---------------------------");
                 break;
 
             //LISTAR USUARIOS  
     
             case 2:
 
+            System.out.println("---------------------------");
+            System.out.println("\nLISTA DE USUARIOS CADASTRADOS\n");
+            
             for(int i=0; i<usuarios.size(); i++){
- 
+
             System.out.println(usuarios.get(i));
 
             }
 
+            System.out.println("---------------------------");
                 break;
 
             //LOGAR USUARIO    
     
             case 3:
+
+            System.out.println("---------------------------");
+
+            System.out.println("\nLOGIN\n");
 
             System.out.print("Digite o login:");
             String loginDig = leitor.next();
@@ -107,27 +110,61 @@ public class Twitter {
             String senhaDig = leitor.next();
 
 
-        
             for (int i = 0; i < usuarios.size(); i++) {
 
 
                 if (loginDig.equals(usuarios.get(i).getLogin()));
 
                 if (senhaDig.equals(usuarios.get(i).getSenha())) {
-                    System.out.println("Usuário logado com sucesso.\n");
+                    System.out.println("\nUsuário logado com sucesso !!!\n");
+
+                    usuarios.get(i).setLogado(true);
+
                     break;
+
                 } else {
-                    System.out.println("Senha incorreta. Por favor, tente novamente.");
+                    System.out.println("Senha incorreta, tente novamente.");
                 }
             }
 
+            System.out.println("---------------------------");
                 break;
     
-    
+                //DESLOGAR USUARIO
+
             case 4:
 
+            System.out.println("---------------------------");
+            
+            System.out.println("USUARIOS LOGADOS :");
 
-                 
+            for(int i=0; i<usuarios.size(); i++){
+                
+                if(usuarios.get(i).logado == true){   
+                System.out.println(usuarios.get(i));
+                }
+            }
+
+            System.out.println("---------------------------");
+
+            System.out.println("\nDESLOGAR\n");
+
+            System.out.println("Digite o login do usuario a ser deslogado:");
+            loginDig = leitor.next();
+
+            for(int i=0; i<usuarios.size(); i++){
+                
+                if (loginDig.equals(usuarios.get(i).getLogin())) {
+                    System.out.println("\nLogout realizado com sucesso !!!\n");
+
+                    usuarios.get(i).setLogado(false);
+                } else{
+
+                    System.out.println("usuario nao encontrado/nao logado");
+                }
+
+            }
+            
                 break;
 
             case 5:

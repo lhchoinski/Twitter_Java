@@ -1,12 +1,14 @@
 public class Usuario{
 
     private String nome,login,email,senha;
+    boolean logado;
 
-    public Usuario(String nome, String login, String email, String senha) {
+    public Usuario(String nome, String login, String email, String senha,boolean logado) {
         this.nome = nome;
         this.login = login;
         this.email = email;
         this.senha = senha;
+        this.logado = logado;
     }
     
 
@@ -49,14 +51,27 @@ public class Usuario{
         this.senha = senha;
     }
 
+    public boolean getLogado() {
+        return logado;
+    }
+
+
+    public void setLogado(boolean logado) {
+        this.logado = logado;
+    }
+    
+
 
  //lista os usuarios cadastrados
  
     @Override
     public String toString() {
-        return   "\n LISTA DE USUARIOS\n\n"
-        +login ;
+        return   "\n"+
+        "->"+login ;
     }
+
+
+    
 
     
 
