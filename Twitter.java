@@ -97,30 +97,36 @@ public class Twitter {
                 break;
 
             //LOGAR USUARIO    
-
-            
     
             case 3:
 
-            String login_dig;
-            String senha_dig;
+            System.out.print("Digite o login:");
+            String loginDig = leitor.next();
 
-            System.out.println("Login:");
-            login_dig = leitor.next();
+            System.out.print("Digite a senha:");
+            String senhaDig = leitor.next();
 
-            System.out.println("Senha:");
-            senha_dig = leitor.next();
 
-            do{
+        
+            for (int i = 0; i < usuarios.size(); i++) {
 
-                System.out.println("Senha/Login incorretos!");
 
-            }while(senha_dig.equals(usuarios.get(senha)) || login_dig.equals(usuarios.get(senha)));
-                
+                if (loginDig.equals(usuarios.get(i).getLogin()));
+
+                if (senhaDig.equals(usuarios.get(i).getSenha())) {
+                    System.out.println("Usuário logado com sucesso.\n");
+                    break;
+                } else {
+                    System.out.println("Senha incorreta. Por favor, tente novamente.");
+                }
+            }
+
                 break;
     
     
             case 4:
+
+
                  
                 break;
 
