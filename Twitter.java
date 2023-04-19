@@ -4,6 +4,7 @@ import java.util.ArrayList;
 public class Twitter {
 
     static ArrayList <Usuario> usuarios = new ArrayList<Usuario>();
+    static ArrayList<Usuario> feedTwitter = new ArrayList<Usuario>();
 
     public static void main(String[] args) {
         
@@ -160,14 +161,49 @@ public class Twitter {
                     usuarios.get(i).setLogado(false);
                 } else{
 
-                    System.out.println("usuario nao encontrado/nao logado");
+                    System.out.println("usuario nao encontrado/nao logado");//NAO ESTA FUNCIONANDO
                 }
-
             }
-            
                 break;
 
+                //TWITTAR
+
             case 5:
+
+                System.out.println("---------------------------");
+            
+                System.out.println("USUARIOS LOGADOS :");
+
+                for(int i=0; i<usuarios.size(); i++){
+                
+                if(usuarios.get(i).logado == true){   
+                System.out.println(usuarios.get(i));
+                }
+            }
+                System.out.print("Digite o usuario que vai realizar o tweet: ");
+                loginDig = leitor.nextLine();
+                
+                for (int i = 0; i < usuarios.size(); i++) {
+
+                if(usuarios.get(i).logado == true){   
+                
+                int tamanho;
+                String tweet;
+                
+
+                do {
+                    System.out.print("O que você deseja tweetar: ");
+                    tweet = leitor.nextLine();
+                    tamanho = tweet.length();
+                } while (tamanho <= 0 || tamanho > 280);
+
+                //FALTA CRIAR ARRAY
+
+                    }else {
+                        System.out.println("Verifique o login");
+                        
+                    }
+                }
                  
                 break;
 
