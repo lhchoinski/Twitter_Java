@@ -1,5 +1,6 @@
 public class Usuario{
 
+    public static int length;
     private String nome,login,email,senha;
     boolean logado;
 
@@ -68,6 +69,11 @@ public class Usuario{
     public String toString() {
         return   "\n"+
         "->"+login ;
+    }
+
+
+    public static int size() {
+        return 0;
     }
 
 
